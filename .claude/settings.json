@@ -1,0 +1,77 @@
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+     "allow": [
+      "Read(./**)",
+      "Bash(ffmpeg *)",
+      "Bash(ffprobe *)",
+      "Bash(python3 .claude/skills/*)",
+      "Bash(python3 projects/*)",
+      "Bash(python3 tmp/*)",
+      "Bash(projects/*/tmp/venv/bin/python .claude/skills/*)",
+      "Bash(projects/*/tmp/venv/bin/python projects/*)",
+      "Bash(ls *)",
+      "Bash(grep *)",
+      "Bash(head *)",
+      "Bash(find *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "WebFetch(domain:www.googleapis.com)",
+      "WebFetch(domain:youtube.googleapis.com)",
+      "Bash(cp *)",
+      "Bash(mkdir *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(brew install *)",
+      "Bash(brew upgrade *)",
+      "Bash(brew reinstall *)",
+      "Bash(npm install *)",
+      "Bash(npm i *)",
+      "Bash(npm ci *)",
+      "Bash(pnpm add *)",
+      "Bash(yarn add *)",
+      "Bash(pip install *)",
+      "Bash(pip3 install *)",
+      "Bash(python3 -m pip *)",
+      "Bash(uv add *)",
+      "Bash(uv sync *)",
+      "Bash(uv pip install *)",
+      "Bash(uv tool install *)",
+      "Bash(uv run --with *)",
+      "Bash(gem install *)",
+      "Bash(cargo install *)"
+        ],
+    "deny": [
+      "Bash(git push*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean*)"
+    ]
+  },
+  "sandbox": {
+    "network": {
+      "allowedDomains": [
+        "www.googleapis.com",
+        "youtube.googleapis.com",
+        "youtubeanalytics.googleapis.com",
+        "oauth2.googleapis.com"
+      ]
+    }
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-delete.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

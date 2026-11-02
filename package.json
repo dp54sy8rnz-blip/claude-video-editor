@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "devDependencies": {
+    "hyperframes": "0.8.73"
+  }
+}

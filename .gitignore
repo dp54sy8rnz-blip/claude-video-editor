@@ -1,0 +1,9 @@
+projects/
+node_modules/
+__pycache__/
+.DS_Store
+._*
+.claude/settings.local.json
+brand.md
+styles/
+assets/

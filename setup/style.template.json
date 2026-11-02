@@ -1,0 +1,75 @@
+{
+  "name": "<style-name>",
+  "status": "from-interview",
+  "formats": ["long", "short-explainer", "short-raw"],
+  "fps": "source",
+
+  "fonts": {
+    "display": "$display",
+    "caption": "$caption",
+    "case": "mixed"
+  },
+
+  "rough_cut": {
+    "hook": "open on the strongest line; no preamble before the hook",
+    "pauses": {
+      "long": {"keep_up_to_s": 0.4, "cut_over_s": 0.5, "cut_to_s": [0.2, 0.3]},
+      "short-explainer": {"keep_up_to_s": 0.25, "cut_over_s": 0.3, "cut_to_s": [0.12, 0.15]},
+      "short-raw": {"keep_up_to_s": 0.25, "cut_over_s": 0.3, "cut_to_s": [0.12, 0.15]}
+    },
+    "reframe": {
+      "short-raw": {"canvas": [1080, 1920], "picture_height": 1920, "bars": "none",
+                    "x_offset": "per segment in cutsheet, px, positive = picture moves right"}
+    }
+  },
+
+  "captions": {
+    "long": {"enabled": false},
+    "short-explainer": {
+      "enabled": true, "words_per_line": [2, 4], "y": 1500, "size_px": 90, "min_size_px": 72,
+      "color": "$bg", "active_word_color": "$accent", "highlight": "karaoke",
+      "stroke_color": "$shadow", "stroke_px": 0, "shadow_px": 3, "shadow_color": "$shadow",
+      "shadow_opacity": 0.45, "uppercase": false, "strip_punctuation": true
+    },
+    "short-raw": {
+      "enabled": true, "words_per_line": [2, 4], "y": 1500, "size_px": 96, "min_size_px": 80,
+      "color": "$bg", "active_word_color": "$bg", "highlight": "none",
+      "stroke_color": "$shadow", "stroke_px": 0, "shadow_px": 3, "shadow_color": "$shadow",
+      "shadow_opacity": 0.45, "uppercase": false, "strip_punctuation": true
+    }
+  },
+
+  "hook": {
+    "card": "short-raw only: one hook card in the first seconds",
+    "open": "strongest line"
+  },
+
+  "graphics": {
+    "kinds": ["stat", "card", "screenshot", "takeover", "zoom", "diagram", "broll"],
+    "frequency": "only lines that earn one: the hook, concrete stats or screenshots, payoffs",
+    "transitions": "hard cuts between graphics; no full-frame/PiP bouncing",
+    "zooms": true,
+    "tail_margin_s": 0.5,
+    "safe_zone": {
+      "long": {"margin_pct": 10, "outro_keep_clear": "right 40% for end screen cards"},
+      "short-explainer": {"x": [80, 1000], "y": [200, 1620]},
+      "short-raw": {"x": [80, 1000], "y": [200, 1620]}
+    }
+  },
+
+  "audio": {
+    "music_bed_db": -18,
+    "music_ducking": false,
+    "sfx_db": -10,
+    "sfx_per_video": "a handful, real samples only",
+    "natural_sound_under_voice_db": -18
+  },
+
+  "outro": {
+    "long": "end screen: keep the right 40% clear for the last 20 s",
+    "short-explainer": "none",
+    "short-raw": "none"
+  },
+
+  "learned": []
+}
